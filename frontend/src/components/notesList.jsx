@@ -1,4 +1,4 @@
-import { Card } from "react-bootstrap"
+/*import { Card } from "react-bootstrap"
 import  { useEffect, useState } from 'react'
 import axios from 'axios'
 //import Note from "./Note";
@@ -75,4 +75,4 @@ function NotesList(props) {
     
 }
 
-export default NotesList;
+export default NotesList;*/

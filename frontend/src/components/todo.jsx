@@ -1,4 +1,4 @@
-import style from "../style/note.module.css";
+/*import style from "../style/note.module.css";
 import {  Card } from 'react-bootstrap';
 
 function Todo( props ){
@@ -18,4 +18,4 @@ function Todo( props ){
     );
 }
 
-export default Todo;
+export default Todo;*/

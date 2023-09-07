@@ -8,9 +8,8 @@ const note = mongoose.Schema({
     text : {
         type : String
     },
-    category : {
-        type : String,
-        required : true
+    status : {
+        type : String
     }
 }, {
     timestamps : true

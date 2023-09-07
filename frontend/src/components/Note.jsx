@@ -1,4 +1,4 @@
-/*import style from "../style/note.module.css";
+import style from "../style/note.module.css";
 import {  Card } from 'react-bootstrap';
 
 function Note( props ){
@@ -18,4 +18,4 @@ function Note( props ){
     );
 }
 
-export default Note;*/
+export default Note;
