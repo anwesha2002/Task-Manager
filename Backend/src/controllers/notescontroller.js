@@ -2,9 +2,10 @@ const notesmodel = require("../model/notemodel");
 const errorhandler = require("express-async-handler");
 
 const getnotes = errorhandler(async(req,res) => {
-    const todo = await notesmodel.find({"status" : "todo"}).exec();
-    const doing = await notesmodel.find({"status" : "doing"}).exec();
-    const done = await notesmodel.find({"status" : "done"}).exec();
+    const task = await notesmodel.find().exec();
+    const todo= task.filter(task=>(task.status==="todo"));
+    const doing= task.filter(task=>(task.status==="doing"));
+    const done= task.filter(task=>(task.status==="done"));
     res.status(200).json({
         todolist:todo,
         doinglist:doing,
