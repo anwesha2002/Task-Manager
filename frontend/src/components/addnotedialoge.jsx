@@ -4,21 +4,34 @@ import { Button, Form, Modal } from "react-bootstrap";
 import { useForm } from 'react-hook-form'
 
 
-const Addnotedialoge = ( { onDissmiss, onnotesaved , status}  ) => {
-    const { register, handleSubmit, formState: {errors,isSubmitting} } = useForm();
+
+const Addnotedialoge = ( { noteedit,  id , onDissmiss, onnotesaved , status}  ) => {
+    const { register, handleSubmit, formState: {errors,isSubmitting} } = useForm({
+       defaultValues : {
+            ...noteedit
+        }
+    });
     
-
-    async function onSubmit({text, title} ){
+    async function onSubmit({ text, title} ){
         try {
-            console.log(title);
-            console.log(text);
-            console.log(status);
-
-            const taskresponse = (await axios.post("http://localhost:5003/api/notes", {
+            //console.log(title);
+            //console.log(text);
+            //console.log(status);
+            let taskresponse;
+            if(noteedit){
+                taskresponse = (await axios.put("http://localhost:5003/api/notes/"+noteedit._id, {
+                    title,
+                    text,
+                    status
+                })).data;
+            }else{
+              taskresponse = (await axios.post("http://localhost:5003/api/notes", {
                 title,
                 text,
                 status
             })).data;
+        }
+            
             console.log(JSON.stringify(taskresponse));
             onnotesaved(taskresponse);
         } catch ({error}) {

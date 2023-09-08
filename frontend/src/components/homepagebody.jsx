@@ -11,6 +11,8 @@ function Homepagebody(){
     const [done, setDone] = useState([]);
 
     const [shownotedialoge, setshownotedialoge] = useState(null);
+    const [id, setId] = useState(null);
+    const [editnote, seteditnote] = useState(null);
     useEffect(() => {
         async function loadnote(){
             try {
@@ -30,6 +32,12 @@ function Homepagebody(){
         setshownotedialoge(status);
     }
 
+    function editNote(status, id, note){
+        setshownotedialoge(status);
+        setId(id);
+        seteditnote(note);
+    }
+
     function onNoteSave(note, status){
         console.log(JSON.stringify(note));
         if(status=="todo") setTodo([note,...todo]);
@@ -37,10 +45,15 @@ function Homepagebody(){
         else setDone([note, ...done]);
     }
 
+    function onnoteedit(note, status){
+        if(status=="todo")  setTodo(todo.editnote.map(existingnote => existingnote._id === note._id ? note : existingnote));
+        
+    }
+
     return(
         <div>
             <Row xs={1} md={2} xl={3} className="g-4">
-                <Col><Board notes={todo} onplusclick={()=>onAddnew("todo")} title="Todo Task"></Board></Col>
+                <Col><Board notes={todo} oneditclick={()=>editNote("todo",todo._id, todo)} onplusclick={()=>onAddnew("todo")} title="Todo Task"></Board></Col>
                 <Col><Board notes={doing} onplusclick={()=>onAddnew("doing")} title="Doing Task"></Board></Col>
                 <Col><Board notes={done} onplusclick={()=>onAddnew("done")} title="Done Task"></Board></Col>
             </Row>
@@ -52,6 +65,19 @@ function Homepagebody(){
                     onnotesaved={(note)=>{
                       onNoteSave(note, shownotedialoge),
                      setshownotedialoge(null)
+                    }}
+               ></Addnotedialoge>
+            }
+            {
+                editnote && id && 
+               <Addnotedialoge
+                    noteedit = {editnote}
+                    id = {id}
+                    onDissmiss={()=>setId(null)}
+                    onnotesaved={(updatednote)=>{
+                     onnoteedit(updatednote),
+                     setId(null)
+                     seteditnote(null)
                     }}
                ></Addnotedialoge>
            }
