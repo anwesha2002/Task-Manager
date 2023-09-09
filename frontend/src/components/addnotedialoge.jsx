@@ -5,10 +5,12 @@ import { useForm } from 'react-hook-form'
 
 
 
-const Addnotedialoge = ( { noteedit,  id , onDissmiss, onnotesaved , status}  ) => {
+const Addnotedialoge = ( { noteedit, onDissmiss, onnotesaved , status}  ) => {
+    console.log(JSON.stringify(noteedit))
     const { register, handleSubmit, formState: {errors,isSubmitting} } = useForm({
        defaultValues : {
-            ...noteedit
+           ...(noteedit && {title : noteedit.title}),
+           ...(noteedit && {text : noteedit.text})
         }
     });
     
@@ -19,7 +21,7 @@ const Addnotedialoge = ( { noteedit,  id , onDissmiss, onnotesaved , status}  ) 
             //console.log(status);
             let taskresponse;
             if(noteedit){
-                taskresponse = (await axios.put("http://localhost:5003/api/notes/"+noteedit._id, {
+                taskresponse = (await axios.patch("http://localhost:5003/api/notes/"+noteedit._id, {
                     title,
                     text,
                     status

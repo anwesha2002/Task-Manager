@@ -7,21 +7,8 @@ import axios from "axios";
 
 
 
-const Board = ({notes, title, onplusclick,oneditclick }) => {
+const Board = ({notes, title, ondelete,  onplusclick,oneditclick }) => {
 
-    const[note, setNotes] = useState([]);
-    
-    const onDeletenoteclick = async (id , note) =>{
-        try {
-            await axios.delete("http://localhost:5003/api/notes/"+id , {note })
-             //.then(response=>{console.log(response.data);})
-            setNotes(note.filter(existingnotes=>existingnotes.id !== id));
-           // .then(note=>setNotes(note.filter(existingnotes=>existingnotes.id !== id)))
-            
-        } catch (error) {
-            console.log(error);
-        }
-    }
 
     /*const oneditclick = async (id, note) =>{
         axios.put("http://localhost:5003/api/notes/"+id , {
@@ -30,8 +17,6 @@ const Board = ({notes, title, onplusclick,oneditclick }) => {
             id : note.id
         })
     }*/
-
-
      return(
         <Card>
             <Card.Title className="mb-3">
@@ -41,7 +26,7 @@ const Board = ({notes, title, onplusclick,oneditclick }) => {
                 </Row> 
             </Card.Title>
             <Card.Body>
-                {notes.map(note=><Note oneditnoteclick={()=>{oneditclick(note._id, note)}} onDeletenoteclick={()=>{onDeletenoteclick(note._id, note)}} key={note._id} text={note.text} title={note.title}></Note>)}
+                {notes.map(note=><Note oneditnoteclick={oneditclick} onDeletenoteclick={ondelete} key={note._id} note={note}></Note>)}
             </Card.Body>
             
         </Card> 

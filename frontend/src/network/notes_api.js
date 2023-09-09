@@ -1,5 +1,9 @@
+import dotenv from 'dotenv'
+dotenv.config();
 import axios from "axios";
-
+const api = axios.create({
+    baseURL : process.env.REACT_APP_BACKEND_URL
+})
 
 async function fetchdata(url){
     const response = await axios.get(url);
@@ -16,3 +20,5 @@ export async function fetchnotes(){
     const response = await fetchdata("http://localhost:5003/api/notes/1")
     return response.data
 }
+
+export default api;
