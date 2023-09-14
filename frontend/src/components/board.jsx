@@ -6,7 +6,6 @@ import { useState } from "react";
 import axios from "axios";
 
 
-
 const Board = ({notes, title, ondelete,  onplusclick,oneditclick }) => {
 
 

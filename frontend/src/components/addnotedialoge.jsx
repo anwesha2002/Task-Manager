@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { useForm } from 'react-hook-form'
+import api from '../network/notes_api'
 
 
 
@@ -16,18 +17,16 @@ const Addnotedialoge = ( { noteedit, onDissmiss, onnotesaved , status}  ) => {
     
     async function onSubmit({ text, title} ){
         try {
-            //console.log(title);
-            //console.log(text);
-            //console.log(status);
+            
             let taskresponse;
             if(noteedit){
-                taskresponse = (await axios.patch("http://localhost:5003/api/notes/"+noteedit._id, {
+                taskresponse = (await api.patch("/notes/"+noteedit._id, {
                     title,
                     text,
                     status
                 })).data;
             }else{
-              taskresponse = (await axios.post("http://localhost:5003/api/notes", {
+              taskresponse = (await api.post("/notes", {
                 title,
                 text,
                 status

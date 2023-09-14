@@ -17,7 +17,7 @@ function Homepagebody(){
     useEffect(() => {
         async function loadnote(){
             try {
-                const task = (await api.get("/notes/")).data
+                const task = (await api.get("/notes")).data
                 setTodo(task.todolist);
                 setDoing(task.doinglist);
                 setDone(task.donelist);
@@ -57,8 +57,8 @@ function Homepagebody(){
         <div>
             <Row xs={1} md={2} xl={3} className="g-4">
                 <Col><Board notes={todo} ondelete={onDelete} oneditclick={(note)=>editNote(note)} onplusclick={()=>onAddnew("todo")} title="Todo Task"></Board></Col>
-                <Col><Board notes={doing} onplusclick={()=>onAddnew("doing")} title="Doing Task"></Board></Col>
-                <Col><Board notes={done} onplusclick={()=>onAddnew("done")} title="Done Task"></Board></Col>
+                <Col><Board notes={doing} oneditclick={(note)=>editNote(note)} onplusclick={()=>onAddnew("doing")} title="Doing Task"></Board></Col>
+                <Col><Board notes={done} oneditclick={(note)=>editNote(note)} onplusclick={()=>onAddnew("done")} title="Done Task"></Board></Col>
             </Row>
             {  
                shownotedialoge &&
