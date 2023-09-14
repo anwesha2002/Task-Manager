@@ -2,19 +2,18 @@
 
 This is a comprehensive readme for Task_Manager web application developed using the MERN (MongoDB, Express.js, React, Node.js) stack. The application allows users to create, update, edit, and delete notes. Here's everything you need to know to get started.
 
-## Table of Contents
+# Table of Contents
 - Introduction
 - Features
 - Prerequisites
 - Installation
-- Configuration
 - Usage
 - API Endpoints
 - Folder Structure
-- Contributing
 - License
-- Introduction
-The Full-Stack Notes Application is designed to provide a user-friendly interface for managing notes. It seamlessly integrates MongoDB for data storage, Express.js for server-side logic, React for the frontend, and Node.js for the backend.
+ 
+## Introduction
+The Task_Manager Application is designed to provide a user-friendly interface for managing notes. It seamlessly integrates MongoDB for data storage, Express.js for server-side logic, React for the frontend, and Node.js for the backend.
 
 ## Features
 
@@ -29,10 +28,11 @@ Before you begin, ensure you have met the following requirements:
 Node.js and npm installed on your development machine.
 MongoDB installed and running locally or on a remote server.
 Basic knowledge of JavaScript, React, Node.js, and Express.js.
-Installation
-Follow these steps to install and set up the Full-Stack Notes Application:
 
- Clone this repository to your local machine:
+## Installation
+Follow these steps to install and set up the Task_manager Application:
+
+Clone this repository to your local machine:
 
 bash
 Copy code
@@ -41,7 +41,7 @@ Navigate to the project directory:
 
 bash
 Copy code
-cd fullstack-notes-app
+cd Task_Manager
 Install server dependencies:
 
 bash
@@ -50,7 +50,7 @@ cd server
 npm install
 Install client dependencies:
 
-Usage
+## Usage
 To run the Task-Manager Application, follow these steps:
 
 Start the server:
@@ -67,19 +67,19 @@ cd ../client
 npm start
 The client will be accessible in your browser at http://localhost:3000, and the server will run on http://localhost:5003.
 
-API Endpoints
+## API Endpoints
 The following API endpoints are available:
 
 GET /api/notes: Retrieve all notes.
 POST /api/notes: Create a new note.  
 PATCH /api/notes/:id: Update a specific note by ID.
 DELETE /api/notes/:id: Delete a specific note by ID.
-Folder Structure
+
+## Folder Structure
 The project folder structure is organized as follows:
 
-java
 Copy code
-fullstack-notes-app/
+Task_Manager/
   ├── client/
   │   ├── public/
   │   ├── src/
@@ -104,6 +104,7 @@ Create a new branch for your feature or bug fix.
 Make your changes and commit them with descriptive messages.
 Push your changes to your fork.
 Create a pull request to the original repository.
-License
+
+## License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
