@@ -36,7 +36,7 @@ Follow these steps to install and set up the Full-Stack Notes Application:
 
 bash
 Copy code
-git clone https://github.com/yourusername/fullstack-notes-app.git
+git clone [https://github.com/anwesha2002/Task-Manager.gitt](https://github.com/anwesha2002/Task-Manager.git)
 Navigate to the project directory:
 
 bash
@@ -49,13 +49,6 @@ Copy code
 cd server
 npm install
 Install client dependencies:
-
-bash
-Copy code
-cd ../client
-npm install
-Configuration
-Configuration settings for the application can be found in the server/config/config.js file. Ensure you update these settings as needed, including your MongoDB connection URI and any secret keys for authentication.
 
 Usage
 To run the Task-Manager Application, follow these steps:
@@ -72,7 +65,7 @@ bash
 Copy code
 cd ../client
 npm start
-The client will be accessible in your browser at http://localhost:3000, and the server will run on http://localhost:5000.
+The client will be accessible in your browser at http://localhost:3000, and the server will run on http://localhost:5003.
 
 API Endpoints
 The following API endpoints are available:
