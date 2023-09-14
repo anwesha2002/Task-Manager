@@ -32,7 +32,7 @@ Basic knowledge of JavaScript, React, Node.js, and Express.js.
 Installation
 Follow these steps to install and set up the Full-Stack Notes Application:
 
--- Clone this repository to your local machine:
+ Clone this repository to your local machine:
 
 bash
 Copy code
